@@ -1,0 +1,10 @@
+
+.common__section{
+    background: rgb(2, 23, 72);
+    height: 150px;
+}
+
+.common__section h1{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}

@@ -1,0 +1,17 @@
+
+.logo__footer{
+    width: 144px;
+    height: 64px;
+    margin-top: 30px;
+}
+
+.footer {
+    background: lightgray;
+    
+}
+
+.footer__bottom{
+    color: var(--primary-color);
+}
+
+
