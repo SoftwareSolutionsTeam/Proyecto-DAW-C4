@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -28,7 +28,7 @@ import {
   faStore,
   faCreditCardAlt,
   faWarehouse,
-  faPlus
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
@@ -137,6 +137,11 @@ const ProductAd = () => {
     },
   ];
 
+  const [data, setData] = useState(rows);
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+
   return (
     <Helmet title={"Lista de productos"}>
       <div className="content__board">
@@ -184,47 +189,55 @@ const ProductAd = () => {
           </div>
         </div>
 
-      
-         
-          <TableContainer component={Paper} className="table">
-            <h3>Lista general de productos</h3>
-            <button className="btn__crear"><FontAwesomeIcon icon={faPlus} /> Crear</button>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table" className="" >
-              <TableHead>
-                <TableRow>
-                  <TableCell className="tableCell">Id</TableCell>
-                  <TableCell className="tableCell">Nombre</TableCell>
-                  <TableCell className="tableCell">Referencia</TableCell>
-                  <TableCell className="tableCell">Categoria</TableCell>
-                  <TableCell className="tableCell">Descripcion</TableCell>
-                  <TableCell className="tableCell">Precio</TableCell>
-                  <TableCell className="tableCell">Stock</TableCell>
+        <TableContainer component={Paper} className="table">
+          <h3>Lista general de productos</h3>
+          <button className="btn__crear">
+            <FontAwesomeIcon icon={faPlus} /> Crear
+          </button>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table" className="">
+            <TableHead>
+              <TableRow>
+                <TableCell className="tableCell">Id</TableCell>
+                <TableCell className="tableCell">Nombre</TableCell>
+                <TableCell className="tableCell">Referencia</TableCell>
+                <TableCell className="tableCell">Categoria</TableCell>
+                <TableCell className="tableCell">Descripcion</TableCell>
+                <TableCell className="tableCell">Precio</TableCell>
+                <TableCell className="tableCell">Stock</TableCell>
+                <TableCell className="tableCell">Acciones</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell className="tableCell">{row.id}</TableCell>
+                  <TableCell className="tableCell">
+                    <div className="cellWrapper">
+                      <img src={row.img} alt="" className="image" />
+                      {row.nombre}
+                    </div>
+                  </TableCell>
+                  <TableCell className="tableCell">{row.ref}</TableCell>
+                  <TableCell className="tableCell">{row.categoria}</TableCell>
+                  <TableCell className="tableCell">{row.descripcion}</TableCell>
+                  <TableCell className="tableCell">{row.precio}</TableCell>
+                  <TableCell className="tableCell">{row.stock}</TableCell>
+                  <TableCell className="tableCell">
+                    <Link to={"/productAd/" + row.id}>
+                      <button className="btn__productListEdit">Editar</button>
+                    </Link>
+                    <button
+                      className="btn__productListElim"
+                      onClick={() => handleDelete(row.id)}
+                    >
+                      Eliminar
+                    </button>
+                  </TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow key={row.id}>
-                    <TableCell className="tableCell">{row.id}</TableCell>
-                    <TableCell className="tableCell">
-                      <div className="cellWrapper">
-                        <img src={row.img} alt="" className="image" />
-                        {row.ProductAd}
-                      </div>
-                    </TableCell>
-                    <TableCell className="tableCell">{row.ref}</TableCell>
-                    <TableCell className="tableCell">{row.categoria}</TableCell>
-                    <TableCell className="tableCell">
-                      {row.descripcion}
-                    </TableCell>
-                    <TableCell className="tableCell">{row.precio}</TableCell>
-                    <TableCell className="tableCell">{row.stock}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        
-
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </Helmet>
   );

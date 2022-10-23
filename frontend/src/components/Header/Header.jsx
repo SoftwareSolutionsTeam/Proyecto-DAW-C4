@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import useAuth from "../../customs/useAuth";
 import userIcon from "../../assets/images/user-icon.png";
+import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase.config";
 
 import {
   faBagShopping,
@@ -18,6 +21,7 @@ import { motion } from "framer-motion";
 import logo from "../../assets/images/logo.png";
 
 import { Container, Row } from "reactstrap";
+import { toast } from "react-toastify";
 
 const nav__links = [
   {
@@ -52,6 +56,17 @@ const Header = () => {
     });
   };
 
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("sesion cerrada");
+        navigate("/home");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
+
   useEffect(() => {
     stickyHeaderFunc();
 
@@ -59,6 +74,7 @@ const Header = () => {
   });
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const profileActionRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -68,6 +84,9 @@ const Header = () => {
   const NavigateToAdmin = () => {
     navigate("/admin");
   };
+
+  const toggleProfileActions = () =>
+    profileActionRef.current.classList.toggle("show__profileActions");
 
   return (
     <header className="header" ref={headerRef}>
@@ -116,17 +135,29 @@ const Header = () => {
                 <span className="badge">{totalQuantity}</span>
               </motion.span>
 
-              <div className="user__icon">
+              <span className="user__icon">
                 <motion.img
                   whileTap={{ scale: 1.2 }}
                   src={currentUser ? currentUser.photoURL : userIcon}
                   alt=""
+                  onClick={toggleProfileActions}
                 />
 
-                <div className="profile__actions">
-                  
+                <div
+                  className="profile__actions"
+                  ref={profileActionRef}
+                  onClick={toggleProfileActions}
+                >
+                  {currentUser ? (
+                    <span onClick={logout}>Cerrar sesion</span>
+                  ) : (
+                    <div className="d-flex align-items-center justify-content-center flex-column">
+                      <Link to="/signup">Registrar</Link>
+                      <Link to="/login">Acceder</Link>
+                    </div>
+                  )}
                 </div>
-              </div>
+              </span>
             </div>
 
             <div className="mobil__menu">

@@ -10,7 +10,25 @@ h3{
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
-    background: rgb(158, 255, 175);
-    color: rgb(12, 129, 34);
+    background: rgb(96, 207, 255);
+    color: rgb(12, 81, 183);
     font-weight: 600;
+}
+
+.btn__productListEdit{
+    border: none;
+    margin-right: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgb(252, 252, 219);
+    color: rgb(150, 162, 10);
+}
+
+.btn__productListElim{
+    border: none;
+    margin-right: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgb(255, 181, 181);
+    color: rgb(221, 4, 4);
 }
