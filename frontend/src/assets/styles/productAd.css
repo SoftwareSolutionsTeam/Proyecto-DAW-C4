@@ -3,16 +3,20 @@ h3{
     margin: 30px;
 }
 .btn__crear{
-    justify-content: right;
+    justify-content: center;
     border: none;
-    margin: 33px;
+    margin: 18px;
     text-align: center;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
-    background: rgb(96, 207, 255);
-    color: rgb(12, 81, 183);
+    background: rgb(209, 255, 225);
+    color: rgb(8, 145, 42);
     font-weight: 600;
+}
+
+.icon__bt{
+    margin-right: 10px;
 }
 
 .btn__productListEdit{
@@ -20,8 +24,8 @@ h3{
     margin-right: 8px;
     padding: 10px;
     border-radius: 8px;
-    background: rgb(252, 252, 219);
-    color: rgb(150, 162, 10);
+    background: rgb(207, 249, 255);
+    color: rgb(28, 70, 255);
 }
 
 .btn__productListElim{
@@ -29,6 +33,6 @@ h3{
     margin-right: 8px;
     padding: 10px;
     border-radius: 8px;
-    background: rgb(255, 181, 181);
+    background: rgb(255, 204, 204);
     color: rgb(221, 4, 4);
 }

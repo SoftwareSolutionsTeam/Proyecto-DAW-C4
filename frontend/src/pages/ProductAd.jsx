@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import "../assets/styles/productAd.css";
 import Helmet from "../components/Helmet/Helmet";
 //import products from "../assets/data/products";
+
 import img01 from "../assets/images/au-in.jpg";
 import img02 from "../assets/images/cmb-t-m.jpg";
 import img03 from "../assets/images/dia-in01.jpg";
@@ -191,9 +192,14 @@ const ProductAd = () => {
 
         <TableContainer component={Paper} className="table">
           <h3>Lista general de productos</h3>
-          <button className="btn__crear">
-            <FontAwesomeIcon icon={faPlus} /> Crear
-          </button>
+          <Link to="/crearProduct" className="btn__crear">
+            <span className="" >
+              <button className="btn__crear">
+                <FontAwesomeIcon icon={faPlus} className="icon__bt"/>
+                  Nuevo
+              </button>
+            </span>
+          </Link>
           <Table sx={{ minWidth: 650 }} aria-label="simple table" className="">
             <TableHead>
               <TableRow>
@@ -223,7 +229,7 @@ const ProductAd = () => {
                   <TableCell className="tableCell">{row.precio}</TableCell>
                   <TableCell className="tableCell">{row.stock}</TableCell>
                   <TableCell className="tableCell">
-                    <Link to={"/productAd/" + row.id}>
+                    <Link to={"/editarProduct/" + row.id}>
                       <button className="btn__productListEdit">Editar</button>
                     </Link>
                     <button
