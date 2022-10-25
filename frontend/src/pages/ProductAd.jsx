@@ -103,7 +103,7 @@ const ProductAd = () => {
       id: "07",
       img: img07,
       ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
+      nombre: "Reloj digital",
       categoria: "dispositivos",
       descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
       precio: "599",
