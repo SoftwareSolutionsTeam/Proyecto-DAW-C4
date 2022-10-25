@@ -54,7 +54,7 @@ const ProductAd = () => {
       img: img02,
       ref: "ctm456",
       nombre: "Combo teclado y mouse",
-      categoria: "dispositivos",
+      categoria: "Computadores",
       descripcion: "El más reciente conjunto de teclado y mouse con cable para escritorio, el combo teclado y mouse alámbrico Genius KM-160, tiene un elegante diseño negro, y es ideal para Windows 7. Su estructura de teclado silencioso permite una excelente experiencia de escritura (igual a un notebook), además de un bajo nivel de ruido mientras escribe.",
       precio: "800",
       stock: "30",
