@@ -93,7 +93,7 @@ const ProductAd = () => {
       id: "06",
       img: img06,
       ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
+      nombre: "Impresora",
       categoria: "dispositivos",
       descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
       precio: "599",
