@@ -12,6 +12,8 @@ import Admin from "../pages/HomeAd";
 import ProductAd from "../pages/ProductAd";
 import Ventas from "../pages/Ventas";
 import Inventario from "../pages/Inventario";
+import EditarProduct from "../pages/EditarProduct";
+import CrearProduct from "../pages/CrearProduct";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -27,6 +29,8 @@ const Router = () => {
       <Route path="productAd" element={<ProductAd />} />
       <Route path="ventas" element={<Ventas />} />
       <Route path="inventario" element={<Inventario />} />
+      <Route path="crearProduct" element={<CrearProduct />} />
+      <Route path="editarProduct/:id" element={<EditarProduct />} />
 
       <Route
         path="checkout"

@@ -1,0 +1,30 @@
+.table tr td img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+td span{
+    cursor: pointer;
+}
+
+td th{
+    color: var(--primary-color);
+}
+
+TableContainer{
+    width: 600px;
+    margin-left: 50px; 
+}
+
+/* table{
+    width: 550px;
+    margin-left: 60px;
+} */
+
+
+/* .table__bordered{
+    width: 600px;
+    margin-left: 250px;
+} */
+

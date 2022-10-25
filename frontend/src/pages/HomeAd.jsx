@@ -68,11 +68,11 @@ const HomeAd = () => {
         <div className="featured">
           <div className="content__body">
             <div className="featuredItem">
-              <span className="featuredTitle">Domicilios</span>
+              <span className="featuredTitle">Productos vendidos</span>
               <div className="featuredMoneyContainer">
-                <span className="featuredMoney">415</span>
+                <span className="featuredMoney">153</span>
                 <span className="featuredMoneyRate">
-                  -11.4%
+                  -1.4%
                   <FontAwesomeIcon
                     icon={faArrowDown}
                     className="featuredIcon negative"
