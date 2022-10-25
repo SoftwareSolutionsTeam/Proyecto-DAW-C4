@@ -22,6 +22,9 @@ import img07 from "../assets/images/imp-ep-01.png";
 import img08 from "../assets/images/por-as05.png";
 import img09 from "../assets/images/smart-watch01.jpg";
 import img10 from "../assets/images/reloj-dep.jpg";
+import img11 from "../assets/images/imp-ep-ecotank-l64.jpg";
+import img12 from "../assets/images/lenovo-monitor-ideacentre-aio.png";
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -129,6 +132,26 @@ const ProductAd = () => {
     {
       id: "10",
       img: img10,
+      ref: "jhd456",
+      nombre: "Audifonos Inalambricos",
+      categoria: "dispositivos",
+      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      precio: "599",
+      stock: "48",
+    },
+    {
+      id: "11",
+      img: img11,
+      ref: "jhd456",
+      nombre: "Audifonos Inalambricos",
+      categoria: "dispositivos",
+      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      precio: "599",
+      stock: "48",
+    },
+    {
+      id: "12",
+      img: img12,
       ref: "jhd456",
       nombre: "Audifonos Inalambricos",
       categoria: "dispositivos",
