@@ -1,0 +1,17 @@
+.producto{
+    flex: 4;
+    padding: 20px;
+}
+
+.productoTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 180px;
+}
+
+.productoTitleContainer{
+    margin-bottom: 50px;
+
+}

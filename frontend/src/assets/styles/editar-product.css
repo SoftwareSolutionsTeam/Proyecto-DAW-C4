@@ -1,0 +1,164 @@
+.producto{
+    flex: 4;
+    padding: 20px;
+}
+
+.productoTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.btn__modificar{
+    width: 100px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(45, 101, 255);
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgb(214, 226, 255);
+    font-weight: 500;
+    margin-top: 27px;
+    margin-left: 300px;
+    align-items: left;
+}
+
+/* actualizar producto */
+
+userUpdate {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 20px;
+  }
+  
+  .userShowTop {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userShowImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .userShowTopTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  
+  .userShowUsername {
+    font-weight: 600;
+  }
+  
+  .userShowUserTitle {
+    font-weight: 300;
+  }
+  
+  .userShowBottom{
+      margin-top: 20px;
+  }
+  
+  .userShowTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+  }
+  
+  .userShowInfo{
+      display: flex;
+      align-items: center;
+      margin: 20px 0px;
+      color: #444;
+  }
+  
+  .userShowIcon{
+      font-size: 16px !important;
+  }
+  
+  .userShowInfoTitle{
+      margin-left: 10px;
+  }
+  
+  .userUpdateTitle{
+      font-size: 24px;
+      font-weight: 600;
+  }
+  
+  .userUpdateForm{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+  }
+  
+  .userUpdateItem{
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+  }
+  
+  .userUpdateItem>label{
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 700;
+  }
+  
+  .userUpdateInput{
+      border: none;
+      width: 250px;
+      height: 30px;
+      border-bottom: 1px solid gray;
+  }
+
+  .userUpdateItem{
+    margin-left: 200px;
+  }
+  
+  .userUpdateRight{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .userUpdateUpload{
+      display: flex;
+      align-items: center;
+  }
+  
+  .userUpdateImg{
+      width: 400px;
+      height: 400px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-right: 20px;
+  }
+  
+  .userUpdateIcon{
+      /* cursor: pointer; */
+      margin-right: 15px;
+  }
+  
+  .userUpdateButton{
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      background-color: darkblue;
+      color: white;
+      font-weight: 600;
+  }
+
+  .text__up{
+    background: lightgray;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
