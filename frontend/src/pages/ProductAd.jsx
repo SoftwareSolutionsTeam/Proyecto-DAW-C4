@@ -102,7 +102,7 @@ const ProductAd = () => {
     {
       id: "07",
       img: img07,
-      ref: "jhd456",
+      ref: "jhd459",
       nombre: "Reloj digital",
       categoria: "dispositivos",
       descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
@@ -112,94 +112,52 @@ const ProductAd = () => {
     {
       id: "08",
       img: img08,
-<<<<<<< HEAD
       ref: "jhd460",
       nombre: "Lapto lenovo smart",
       categoria: "dispositivos",
       descripcion: "Portatil Lenovo 3-15iml05 Core i3 8GB Ssd 256GB 15.6 Hd",
       precio: "2.400.000",
-=======
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      categoria: "dispositivos",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-      precio: "599",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
       stock: "48",
     },
     {
       id: "09",
       img: img09,
-<<<<<<< HEAD
       ref: "jhd461",
       nombre: "Smart Watch",
       categoria: "dispositivos",
       descripcion: "Reloj Inteligente Smartwatch Bluetooth Sensor Pulso Cardiaco",
       precio: "400.000",
-=======
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      categoria: "dispositivos",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-      precio: "599",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
       stock: "48",
     },
     {
       id: "10",
       img: img10,
-<<<<<<< HEAD
       ref: "jhd462",
       nombre: "Lenovo Reloj Inteligente",
       categoria: "dispositivos",
       descripcion: "Toumi Fit 2 watch Reloj inteligente",
       precio: "1.300.000",
       stock: "20",
-=======
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      categoria: "dispositivos",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-      precio: "599",
-      stock: "48",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
     },
     {
       id: "11",
       img: img11,
-<<<<<<< HEAD
       ref: "jhd463",
       nombre: "Epson Workforce Pro Wf4730 + Ecotanque Bigcolors",
       categoria: "dispositivos",
       descripcion: "EPSON EC4030 = EPSON WORKFORCE PRO WF4730 + ECOTANQUE Impresora / Copia / Fax / Scanner / ADF /mpresión Duplex/ Ethernet/ Wi-fi / Web y Móvil Print",
       precio: "2.030.000",
-=======
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      categoria: "dispositivos",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-      precio: "599",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
       stock: "48",
     },
     {
       id: "12",
       img: img12,
-<<<<<<< HEAD
-      ref: "hga23",
+      ref: "jhd456",
       nombre: "IdeaCentre AIO 3 6ta Gen (23.8', AMD)'",
       categoria: "dispositivos",
-      descripcion: "'IdeaCentre 3 23.8' AIO 6ta Gen - White Modelo:  F0G100J7LD",
+      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
       precio: "3.000.000",
       stock: "5",
-=======
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      categoria: "dispositivos",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-      precio: "599",
-      stock: "48",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
     },
   ];
 
@@ -314,8 +272,4 @@ const ProductAd = () => {
   );
 };
 
-<<<<<<< HEAD
 export default ProductAd;
-=======
-export default ProductAd;
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702

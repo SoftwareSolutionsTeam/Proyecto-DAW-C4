@@ -40,55 +40,31 @@ const Ventas = () => {
     {
       id: "qswe3402",
       img: img02,
-<<<<<<< HEAD
       ref: "jhd456",
       nombre: "Audifonos Inalambricos",
       fecha: "2021-09-23",
       cliente: "cliente02@gmail.com",
       precio: "599",
-=======
-      ref: "ctm456",
-      nombre: "Combo mouse y teclado",
-      fecha: "2021-09-23",
-      cliente: "cliente02@gmail.com",
-      precio: "800",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
       status: "en camino",
     },
     {
       id: "0sedr435tg3",
       img: img03,
-<<<<<<< HEAD
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      fecha: "2020-11-03",
-      cliente: "cliente03@gmail.com",
-      precio: "599",
-=======
       ref: "dib397",
       nombre: "Diadema Inalambrica",
       fecha: "2020-11-03",
       cliente: "cliente03@gmail.com",
       precio: "300",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
       status: "pendiente",
     },
     {
       id: "0cd23jjkl4",
       img: img04,
-<<<<<<< HEAD
-      ref: "jhd456",
-      nombre: "Audifonos Inalambricos",
-      fecha: "2019-10-08",
-      cliente: "cliente04@gmail.com",
-      precio: "599",
-=======
       ref: "dao999",
       nombre: "Computador all-one",
       fecha: "2019-10-08",
       cliente: "cliente04@gmail.com",
       precio: "1000",
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702
       status: "entregado",
     },
   ];
