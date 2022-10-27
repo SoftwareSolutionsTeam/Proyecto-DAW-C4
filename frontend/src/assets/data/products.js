@@ -51,7 +51,7 @@ const products = [
 
   {
     id: "02",
-    productName: "Portátil HP ",
+    productName: "Pc Escritorio HP ",
     imgUrl: productImg02,
     category: "computadores",
     price: 253,
@@ -96,7 +96,7 @@ const products = [
   },
   {
     id: "04",
-    productName: "All-In-One HP White ",
+    productName: "iMac Max ",
     imgUrl: productImg04,
     category: "computadores",
     price: 253,
@@ -118,7 +118,7 @@ const products = [
   },
   {
     id: "05",
-    productName: "Impresora Epson EcoTank",
+    productName: "Portatil Lenovo MKL",
     imgUrl: productImg05,
     category: "impresoras",
     price: 163,
@@ -141,7 +141,7 @@ const products = [
 
   {
     id: "06",
-    productName: "Impresora HP InkColor",
+    productName: "Portatil Lenovo GBK",
     imgUrl: productImg06,
     category: "impresoras",
     price: 163,
@@ -164,9 +164,9 @@ const products = [
 
   {
     id: "07",
-    productName: "Impresora Lexmark MLx",
+    productName: "Portatil HP Gamer",
     imgUrl: productImg07,
-    category: "impresoras",
+    category: "computadores",
     price: 163,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -186,9 +186,9 @@ const products = [
   },
   {
     id: "08",
-    productName: "Audífonos Inalámbricos",
+    productName: "Mac Book Pro",
     imgUrl: productImg08,
-    category: "dispositivos",
+    category: "computadores",
     price: 99,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -232,9 +232,9 @@ const products = [
 
   {
     id: "10",
-    productName: "Teclado Lenovo",
+    productName: "Impresora HP Laser",
     imgUrl: productImg10,
-    category: "dispositivos",
+    category: "impresora",
     price: 89,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -255,9 +255,9 @@ const products = [
 
   {
     id: "11",
-    productName: "Auriculares Sony",
+    productName: "Impresora Lexmark Multifuncional",
     imgUrl: productImg11,
-    category: "dipositivos",
+    category: "impresoras",
     price: 112,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -278,9 +278,9 @@ const products = [
 
   {
     id: "12",
-    productName: "Mac Book Pro",
+    productName: "Impresora Epson Ecotank",
     imgUrl: productImg12,
-    category: "computadores",
+    category: "impresoras",
     price: 799,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -300,7 +300,7 @@ const products = [
   },
   {
     id: "13",
-    productName: "Apple Watch",
+    productName: "Audifonos Inalambricos",
     imgUrl: productImg13,
     category: "dispositivos",
     price: 99,
@@ -322,9 +322,9 @@ const products = [
   },
   {
     id: "14",
-    productName: "iMac 12 Max",
+    productName: "Combo teclado mouse",
     imgUrl: productImg14,
-    category: "computadores",
+    category: "dispositivos",
     price: 799,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -345,9 +345,9 @@ const products = [
 
   {
     id: "15",
-    productName: "Mac Air",
+    productName: "SmartWatch Deportivo",
     imgUrl: productImg15,
-    category: "computadores",
+    category: "dispositivos",
     price: 599,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -368,9 +368,9 @@ const products = [
 
   {
     id: "16",
-    productName: "Mac One Plus",
+    productName: "Auriculares Sony",
     imgUrl: productImg16,
-    category: "computadores",
+    category: "dispositivos",
     price: 799,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -391,9 +391,9 @@ const products = [
 
   {
     id: "17",
-    productName: "Manos Libres xFree",
+    productName: "Portatil lENOVO",
     imgUrl: productImg17,
-    category: "dispositivos",
+    category: "computadores",
     price: 899,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -414,9 +414,9 @@ const products = [
 
   {
     id: "18",
-    productName: "Mouse Inalámbrico",
+    productName: "All-In-One LENOVO Black",
     imgUrl: productImg18,
-    category: "dispositivos",
+    category: "computadores",
     price: 699,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -437,9 +437,9 @@ const products = [
 
   {
     id: "19",
-    productName: "Mouse Inalámbrico",
+    productName: "Impresora Epson MultiColor",
     imgUrl: productImg19,
-    category: "dispositivos",
+    category: "impresoras",
     price: 299,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -460,7 +460,7 @@ const products = [
 
   {
     id: "20",
-    productName: "Mouse Inalámbrico sxl",
+    productName: "SmartWatch Sport",
     imgUrl: productImg20,
     category: "dispositivos",
     price: 299,
@@ -483,9 +483,9 @@ const products = [
 
   {
     id: "21",
-    productName: "Rolex Watch",
+    productName: "Portatil Lenovo XLM",
     imgUrl: productImg21,
-    category: "watch",
+    category: "computadores",
     price: 299,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
