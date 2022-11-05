@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CommonSection from "../components/UI/CommonSection";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../assets/styles/shop.css";
-import products from "../assets/data/products";
+// import products from "../assets/data/products";
 import ProductsList from "../components/UI/ProductsList";
 
 const Shop = () => {
-  const [productsData, setProductsData] = useState(products);
+  // const [productsData, setProductsData] = useState(products);
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5001/api/productos')
+         .then((response) => response.json())
+         .then((data) => {
+           setProducts(data.productos);
+           console.log(data);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
@@ -17,28 +30,28 @@ const Shop = () => {
       const filteredProducts = products.filter(
         (item) => item.category === "computadores"
       );
-      setProductsData(filteredProducts);
+      // setProductsData(filteredProducts);
     }
 
     if (filterValue === "impresoras") {
       const filteredProducts = products.filter(
         (item) => item.category === "impresoras"
       );
-      setProductsData(filteredProducts);
+      // setProductsData(filteredProducts);
     }
 
     if (filterValue === "dispositivos") {
       const filteredProducts = products.filter(
         (item) => item.category === "dispositivos"
       );
-      setProductsData(filteredProducts);
+      // setProductsData(filteredProducts);
     }
 
     if (filterValue === "wireless") {
       const filteredProducts = products.filter(
         (item) => item.category === "wireless"
       );
-      setProductsData(filteredProducts);
+      // setProductsData(filteredProducts);
     }
   };
 
@@ -49,7 +62,7 @@ const Shop = () => {
       item.productName.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    setProductsData(searchedProducts);
+    // setProductsData(searchedProducts);
   };
 
   return (
@@ -97,10 +110,10 @@ const Shop = () => {
       <section className="pt-0">
         <Container>
           <Row>
-            {productsData.length === 0 ? (
+            {products.length === 0 ? (
               <h2>Producto no encontrado!</h2>
             ) : (
-              <ProductsList data={productsData} />
+              <ProductsList data={products} />
             )}
           </Row>
         </Container>

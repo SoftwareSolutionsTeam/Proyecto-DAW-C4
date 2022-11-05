@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { useParams } from "react-router-dom";
-import products from "../assets/data/products";
+// import products from "../assets/data/products";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,12 +9,13 @@ import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 //import { faStar, faStarHalf } from "@fortawesome/free-regular-svg-icons";
 import "../assets/styles/product-details.css";
 import { motion } from "framer-motion";
-import ProductsList from "../components/UI/ProductsList";
+// import ProductsList from "../components/UI/ProductsList";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 
 const ProductDetails = () => {
+
   const [tab, setTab] = useState("desc");
   const reviewUser = useRef("");
   const reviewMsg = useRef("");
@@ -22,20 +23,42 @@ const ProductDetails = () => {
 
   const [rating, setRating] = useState(null);
   const { id } = useParams();
-  const product = products.find((item) => item.id === id);
+  // const product = products.find((item) => item.id === id);
 
-  const {
-    imgUrl,
-    productName,
-    price,
-    avgRating,
-    reviews,
-    description,
-    shortDesc,
-    category,
-  } = product;
+  const [prod, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5001/api/producto/'+id)
+         .then((response) => response.json())
+         .then((data) => {
+           setProducts(data.product);
+           console.log(data);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
 
-  const relatedProducts = products.filter((item) => item.category === category);
+   const {
+    imagen,
+    nombre,
+    precio,
+    descripcion,
+    categoria,
+  } = prod;
+
+
+  // const {
+  //   imgUrl,
+  //   productName,
+  //   price,
+  //   avgRating,
+  //   reviews,
+  //   description,
+  //   shortDesc,
+  //   category,
+  // } = product;
+
+  // const relatedProducts = products.filter((item) => item.category === category);
 
   const submitHanler = (e) => {
     e.preventDefault();
@@ -56,33 +79,33 @@ const ProductDetails = () => {
     dispatch(
       cartActions.addItem({
         id,
-        Image: imgUrl,
-        productName,
-        price,
+        image: imagen,
+        nombre,
+        precio,
       })
     );
 
     toast.success("Producto añadido a la bolsa");
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [product]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [product]);
 
   return (
-    <Helmet title={productName}>
-      <CommonSection title={productName} />
+    <Helmet title={nombre}>
+      <CommonSection title={nombre} />
 
       <section className="pt-0">
         <Container>
           <Row>
             <Col lg="6">
-              <img src={imgUrl} alt="" />
+              <img src={imagen} alt="" />
             </Col>
 
             <Col lg="6">
               <div className="product__details">
-                <h2>{productName}</h2>
+                <h2>{nombre}</h2>
                 <div className="product__rating d-flex align-items-center gap-5 mb-4">
                   <div>
                     <span>
@@ -103,15 +126,16 @@ const ProductDetails = () => {
                   </div>
 
                   <p>
-                    (<span>{avgRating}</span> Ratings)
+                    {/* (<span>{avgRating}</span> Ratings) */}
                   </p>
                 </div>
 
                 <div className="d-flex align-items-center gap-5">
-                  <span className="product__price">${price} </span>
-                  <span>Categoría: {category.toUpperCase()}</span>
+                  <span className="product__price">${precio} </span>
+                  <span>Categoría: {categoria} </span>
+                  {/* <span>Categoría: {category.toUpperCase()}</span> */}
                 </div>
-                <p className="mt-3">{shortDesc}</p>
+                <p className="mt-3">{descripcion}</p>
 
                 <motion.button
                   whileTap={{ scale: 1.1 }}
@@ -135,24 +159,24 @@ const ProductDetails = () => {
                   className={`${tab === "desc" ? "active__tab" : ""}`}
                   onClick={() => setTab("desc")}
                 >
-                  Descripción
+                  {/* Descripción */}
                 </h5>
                 <h5
                   className={`${tab === "rev" ? "active__tab" : ""}`}
                   onClick={() => setTab("rev")}
                 >
-                  Reviews ({reviews.length})
+                  {/* Reviews ({reviews.length}) */}
                 </h5>
               </div>
 
               {tab === "desc" ? (
                 <div className="tab__content mt-4">
-                  <p>{description}</p>
+                  {/* <p>{description}</p> */}
                 </div>
               ) : (
                 <div className="product__review mt-5">
                   <div className="review__wrapper">
-                    <ul>
+                    {/* <ul>
                       {reviews?.map((item, index) => (
                         <li key={index} className="mb-4">
                           <h6>Mom0 Shin</h6>
@@ -160,10 +184,10 @@ const ProductDetails = () => {
                           <p>{item.text}</p>
                         </li>
                       ))}
-                    </ul>
+                    </ul> */}
 
                     <div className="review__form">
-                      <h4>Deja tu comentario...</h4>
+                      {/* <h4>Deja tu comentario...</h4> */}
                       <form action="" onSubmit={submitHanler}>
                         <div className="form__group">
                           <input
@@ -231,11 +255,11 @@ const ProductDetails = () => {
               )}
             </Col>
 
-            <Col lg="12" className="mt-5">
+            {/* <Col lg="12" className="mt-5">
               <h2 className="related__title">También te puede interesar</h2>
-            </Col>
+            </Col> */}
 
-            <ProductsList data={relatedProducts} />
+            {/* <ProductsList data={relatedProducts} /> */}
           </Row>
         </Container>
       </section>

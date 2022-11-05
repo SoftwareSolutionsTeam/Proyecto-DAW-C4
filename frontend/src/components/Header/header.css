@@ -42,25 +42,24 @@
     column-gap: 1.2rem;    
 }
 
-/* .nav__icons .user__icon img{
-    width: 30px;
-    height: 30px;
-} */
-
-.user__icon img{
+.nav__icons .profile img{
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.fav__icon, .cart__icon, .admin__icon{
+    cursor: pointer;   
 } 
 
-.nav__icons .user__icon{
+.nav__icons .profile{
     position: relative;
     z-index: 9;
 }
 
-.nav__icons .profile__actions{
+.nav__icons .profile .profile__actions{
     position: absolute;
-    top: 190%;
+    top: 100%;
     left: 0;
     width: 150px;
     z-index: 10;
@@ -76,17 +75,6 @@
 
 .show__profileActions{
     display: block;
-}
-
-.fav__icon{
-    cursor: pointer;   
-} 
-.cart__icon{
-    cursor: pointer;   
-}
-
-.admin__icon{
-    cursor: pointer;
 }
 
 .ad__icon{
@@ -115,18 +103,6 @@
     font-weight: 600;
     z-index: 10;
 }
-
-/* .nav__icons span i {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-} */
-
-.nav__icons span img{
-    width: 30px;
-    height: 30px;
-}
-
-
 
 .mobil__menu{
     font-size: 1.3rem;

@@ -9,10 +9,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-import img01 from "../assets/images/au-in.jpg";
-import img02 from "../assets/images/cmb-t-m.jpg";
-import img03 from "../assets/images/dia-in01.jpg";
-import img04 from "../assets/images/es-hp09LA.webp";
+// import img01 from "../assets/images/au-in.jpg";
+// import img02 from "../assets/images/cmb-t-m.jpg";
+// import img03 from "../assets/images/dia-in01.jpg";
+// import img04 from "../assets/images/es-hp09LA.webp";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -29,7 +29,7 @@ const Ventas = () => {
   const rows = [
     {
       id: "01jdki34784",
-      img: img01,
+      // img: img01,
       ref: "jhd456",
       nombre: "Audifonos Inalambricos",
       fecha: "2022-01-03",
@@ -39,7 +39,7 @@ const Ventas = () => {
     },
     {
       id: "qswe3402",
-      img: img02,
+      // img: img02,
       ref: "jhd456",
       nombre: "Audifonos Inalambricos",
       fecha: "2021-09-23",
@@ -49,7 +49,7 @@ const Ventas = () => {
     },
     {
       id: "0sedr435tg3",
-      img: img03,
+      // img: img03,
       ref: "dib397",
       nombre: "Diadema Inalambrica",
       fecha: "2020-11-03",
@@ -59,7 +59,7 @@ const Ventas = () => {
     },
     {
       id: "0cd23jjkl4",
-      img: img04,
+      // img: img04,
       ref: "dao999",
       nombre: "Computador all-one",
       fecha: "2019-10-08",
@@ -69,10 +69,10 @@ const Ventas = () => {
     },
   ];
 
-  const [data, setData] = useState(rows);
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+  // const [data, setData] = useState(rows);
+  // const handleDelete = (id) => {
+  //   setData(data.filter((item) => item.id !== id));
+  // };
 
   return (
     <Helmet title={"Lista de ventas"}>
@@ -136,9 +136,9 @@ const Ventas = () => {
                 <TableRow>
                   <TableCell className="tableCell">Id orden</TableCell>
                   <TableCell className="tableCell">Producto</TableCell>
-                  <TableCell className="tableCell">Referencia</TableCell>
+                  {/* <TableCell className="tableCell">Referencia</TableCell> */}
                   <TableCell className="tableCell">Fecha</TableCell>
-                  <TableCell className="tableCell">Cliente</TableCell>
+                  {/* <TableCell className="tableCell">Cliente</TableCell> */}
                   <TableCell className="tableCell">Total venta</TableCell>
                   <TableCell className="tableCell">Status orden</TableCell>
                 </TableRow>
@@ -153,23 +153,23 @@ const Ventas = () => {
                         {row.nombre}
                       </div>
                     </TableCell>
-                    <TableCell className="tableCell">{row.ref}</TableCell>
+                    {/* <TableCell className="tableCell">{row.ref}</TableCell> */}
                     <TableCell className="tableCell">{row.fecha}</TableCell>
-                    <TableCell className="tableCell">{row.cliente}</TableCell>
+                    {/* <TableCell className="tableCell">{row.cliente}</TableCell> */}
                     <TableCell className="tableCell">{row.precio}</TableCell>
                     <TableCell className="tableCell__status">{row.status}</TableCell>
 
-                    {/* <TableCell className="tableCell">
-                    <Link to={"/editarProduct/" + row.id}>
-                      <button className="btn__productListEdit">Editar</button>
+                    <TableCell className="tableCell">
+                    <Link to={""}>
+                      <button className="btn__productListEdit">Ver detalles</button>
                     </Link>
-                    <button
+                    {/* <button
                       className="btn__productListElim"
-                      onClick={() => handleDelete(row.id)}
+                      onClick=""
                     >
                       Eliminar
-                    </button>
-                  </TableCell> */}
+                    </button> */}
+                  </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

@@ -80,9 +80,9 @@ const Tr = ({ item }) => {
   return (
     <tr>
       <td>
-        <img src={item.imgUrl} alt="" />
+        <img src={item.imagen} alt="" />
       </td>
-      <td>{item.productName}</td>
+      <td>{item.nombre}</td>
       <td>{item.price}</td>
       <td>{item.quantity}px</td>
       <td>

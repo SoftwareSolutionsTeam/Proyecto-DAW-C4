@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import products from "../assets/data/products";
+// import products from "../assets/data/products";
 
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
-import heroImg from "../assets/images/dia-in01.jpg";
+import heroImg from "../img/dia-in01.jpg";
 import "../assets/styles/home.css";
 import Services from "../services/Services";
 import ProductsList from "../components/UI/ProductsList";
@@ -15,6 +15,20 @@ const Home = () => {
 
   const [trendingProducts,setTrendingProducts] = useState([])
   const [bestSalesProducts,setBestSalesProducts] = useState([])
+
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5001/api/productos')
+         .then((response) => response.json())
+         .then((data) => {
+            console.log(data);
+            setProducts(data.productos);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
 
   const year = new Date().getFullYear();
 
@@ -54,7 +68,8 @@ const Home = () => {
       </section>
 
       <Services />
-      <section className="trending__products">
+
+      {/* <section className="trending__products">
         <Container>
           <Row>
             <Col lg='12'className="text__center">
@@ -63,9 +78,9 @@ const Home = () => {
             <ProductsList data={trendingProducts} />
           </Row>
         </Container>
-      </section>
+      </section> */}
 
-      <section className="best__sales">
+      {/* <section className="best__sales">
       <Container>
           <Row>
             <Col lg='12'className="text__center">
@@ -74,7 +89,19 @@ const Home = () => {
             <ProductsList data={bestSalesProducts} />
           </Row>
         </Container>
-      </section>     
+      </section>  */}
+
+      <section className="best__sales">
+      <Container>
+          <Row>
+            <Col lg='12'className="text__center">
+              <h2 className="section__title">desde la base de datos</h2>
+            </Col>
+            <ProductsList data={products} />
+          </Row>
+        </Container>
+      </section> 
+
     </Helmet>
   );
 };

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import axios from "axios";
 import "../assets/styles/editar-product.css";
 import Helmet from "../components/Helmet/Helmet";
+import Swal from "sweetalert2";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,12 +11,96 @@ import {
   faStore,
   faCreditCardAlt,
   faWarehouse,
-  faUpload
+  faUpload,
 } from "@fortawesome/free-solid-svg-icons";
-
 import { Link } from "react-router-dom";
 
 const EditarProduct = () => {
+  //const params = useParams();
+  const { id } = useParams();
+
+  //Hooks
+  const [idProducto, setIdProducto] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const [precio, setPrecio] = useState(0);
+  const [inventario, setInventario] = useState(0);
+  const [imagen, setImagen] = useState("");
+  //const [imagenActual, setImagenActual] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const uploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "images");
+    setLoading(true);
+    const res = await fetch(
+      "http://api.cloudinary.com/v1_1/tecnostore/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    //console.log(res)
+    setImagen(file.secure_url);
+    //console.log(file.secure_url)
+    setLoading(false);
+  };
+
+  //Para volver atrás al index
+  const navegar = useNavigate();
+
+  useEffect(() => {
+    const recuperarProducto = () => {
+      let producto = JSON.parse(localStorage.getItem("productoAEditar"));
+      setIdProducto(producto._id);
+    };
+    recuperarProducto();
+    //console.log('ver id producto:',id)
+
+    axios
+      .get("/producto/" + id) // { id: params.id }
+
+      .then((res) => {
+        //console.log('mensaje del data',res);
+        const dataproductos = res.data.product;
+        setNombre(dataproductos.nombre);
+        setDescripcion(dataproductos.descripcion);
+        setCategoria(dataproductos.categoria);
+        setPrecio(dataproductos.precio);
+        setInventario(dataproductos.inventario);
+        setImagen(dataproductos.imagen);
+        //setImagenActual(dataproductos.imagen.url);
+      });
+  }, []);
+
+  //Función que actualiza
+  function editarProducto() {
+    //Nuevo objeto para actualizar el usuario
+    const actualizarproducto = {
+      nombre: nombre,
+      descripcion: descripcion,
+      categoria: categoria,
+      precio: precio,
+      inventario: inventario,
+      imagen: imagen,
+    };
+
+    //Hacer la petición usando axios
+    axios
+      .put("/producto/" + id, actualizarproducto)
+      .then((res) => {
+        console.log("info res.data", res.data);
+        Swal.fire("Producto modificado..✔");
+      })
+      .then((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <Helmet title={"Editar producto"}>
       <div className="content__board">
@@ -66,88 +153,115 @@ const EditarProduct = () => {
         <div className="producto">
           <div className="productoTitleContainer">
             <h1 className="productoTitle">Modificar Producto</h1>
-            {/* <button className="btn__modificar">Modificar</button> */}
           </div>
 
-
           <div className="userUpdate">
-            {/* <span className="userUpdateTitle">Editar</span> */}
-            <form className="userUpdateForm">
-
+            <form className="userUpdateForm" onSubmit={editarProducto}>
               <div className="userUpdateLeft">
-                <div className="userUpdateItem">
+                {/* <div className="userUpdateItem">
                   <label>Referencia</label>
                   <input
                     type="text"
-                    placeholder="jhdy345"
+                    placeholder=""
                     className="userUpdateInput"
                   />
-                </div>
+                </div> */}
                 <div className="userUpdateItem">
                   <label>Nombre Producto</label>
                   <input
                     type="text"
-                    placeholder="Audifonos Inalanbricos"
+                    placeholder=""
                     className="userUpdateInput"
+                    value={nombre}
+                    onChange={(e) => {
+                      setNombre(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Categoría</label>
                   <input
                     type="text"
-                    placeholder="Dispositivos"
+                    placeholder=""
                     className="userUpdateInput"
+                    value={categoria}
+                    onChange={(e) => {
+                      setCategoria(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Descripción</label>
                   <textarea
                     type="text"
-                    placeholder="Auriculares estereo recargables"
+                    placeholder=""
                     className="userUpdateInput"
+                    value={descripcion}
+                    onChange={(e) => {
+                      setDescripcion(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Precio</label>
                   <input
                     type="text"
-                    placeholder="599.00"
+                    placeholder=""
                     className="userUpdateInput"
+                    value={precio}
+                    onChange={(e) => {
+                      setPrecio(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Stock</label>
                   <input
                     type="text"
-                    placeholder="85"
+                    placeholder=""
                     className="userUpdateInput"
+                    value={inventario}
+                    onChange={(e) => {
+                      setInventario(e.target.value);
+                    }}
                   />
                 </div>
 
-                <button className="btn__modificar">Actualizar</button>
+                <button type="submit" className="btn__modificar">
+                  Actualizar
+                </button>
               </div>
-
 
               <div className="userUpdateRight">
                 <div className="userUpdateUpload">
-                  <img
-                    className="userUpdateImg"
-                    src="https://www.sony.com.co/image/1cc1c23c2224adedbaaa8c3e656bef23?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF"
-                    alt=""
-                  />
-                  <label htmlFor="file" className="text__up"> 
-                    <FontAwesomeIcon icon={faUpload} className="userUpdateIcon" />
-                    <span >Cargar imagen</span>
+                  <label htmlFor="file" className="text__up">
+                    <FontAwesomeIcon
+                      icon={faUpload}
+                      className="userUpdateIcon"
+                    />
+                    <span>Cargar imagen</span>
                   </label>
-                  <input type="file" id="file" style={{ display: "none" }} /> 
-                  
+                  <input
+                    type="file"
+                    id="file"
+                    style={{ display: "none" }}
+                    value=""
+                    onChange={uploadImage}
+                  />
+                  {loading ? (
+                    <h3>Cargando imagen...</h3>
+                  ) : (
+                    <img
+                      className="userUpdateImg"
+                      src=""
+                      alt="imagen-producto"
+                    />
+                  )}
                 </div>
-                
               </div>
             </form>
           </div>
         </div>
-        
       </div>
     </Helmet>
   );

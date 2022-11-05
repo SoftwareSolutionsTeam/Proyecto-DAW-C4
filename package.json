@@ -2,25 +2,32 @@
   "name": "proyectofinal-c4",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-<<<<<<< HEAD
-    "mongoose": "^6.6.5"
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mdbreact": "^5.2.0",
+    "mongoose": "^6.6.5",
+    "node-fetch": "^3.2.10",
+    "nodemailer": "^6.8.0",
+    "react-helmet": "^6.1.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
-=======
-    "mongoose": "^6.7.0",
-    "node-fetch": "^3.2.10"
-  }
-}
-
-
->>>>>>> f78d9cbabda58c74a5c6e1ebecca4314a6a7e702

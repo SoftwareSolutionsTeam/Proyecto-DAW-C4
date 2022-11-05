@@ -16,31 +16,30 @@ const ProductCard = ({ item }) => {
   const addToCart = () => {
     dispatch(
       cartActions.addItem({
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        imgUrl: item.imgUrl,
+        id: item._id,
+        nombre: item.nombre,
+        price: item.precio,
+        imagen: item.imagen,
       })
     );
 
     toast.success('Producto añadido a la bolsa')
   };
 
-
   return (
     <Col lg="3" md="4" className="mb-2">
       <div className="product__item">
         <div className="product__img">
-          <motion.img whileHover={{ scale: 0.9 }} src={item.imgUrl} alt="" />
+          <motion.img whileHover={{ scale: 0.9 }} src={item.imagen} alt="" />
         </div>
         <div className="p-2 product__info">
           <h3 className="product__name">
-            <Link to={`/shop/${item.id}`}>{item.productName}</Link>
+            <Link to={`/shop/${item._id}`}>{item.nombre}</Link>
           </h3>
-          <span>{item.category}</span>
+          <span>{item.categoria}</span>
         </div>
         <div className="product__card-bottom d-flex align-items-center justify-content-between">
-          <span className="price">${item.price}</span>
+          <span className="price">${item.precio}</span>
           <motion.div
             whileTap={{ scale: 1.3 }}
             className="icon-bottom"

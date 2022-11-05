@@ -1,29 +1,29 @@
-import productImg01 from "../images/es-as02.png";
-import productImg02 from "../images/es-hp03.webp";
-import productImg03 from "../images/es-len01.png";
-import productImg04 from "../images/iMac-Pro.webp";
+// import productImg01 from "../images/es-as02.png";
+// import productImg02 from "../images/es-hp03.webp";
+// import productImg03 from "../images/es-len01.png";
+// import productImg04 from "../images/iMac-Pro.webp";
 
-import productImg05 from "../images/por-as01.webp";
-import productImg06 from "../images/por-as05.png";
-import productImg07 from "../images/por-hp06.webp";
-import productImg08 from "../images/por-mac.webp";
+// import productImg05 from "../images/por-as01.webp";
+// import productImg06 from "../images/por-as05.png";
+// import productImg07 from "../images/por-hp06.webp";
+// import productImg08 from "../images/por-mac.webp";
 
-import productImg09 from "../images/imp-ep-01.png";
-import productImg10 from "../images/imp-hp-01.webp";
-import productImg11 from "../images/imp-lx-01.png";
-import productImg12 from "../images/imp-ep-ecotank-l64.jpg";
+// import productImg09 from "../images/imp-ep-01.png";
+// import productImg10 from "../images/imp-hp-01.webp";
+// import productImg11 from "../images/imp-lx-01.png";
+// import productImg12 from "../images/imp-ep-ecotank-l64.jpg";
 
-import productImg13 from "../images/au-in.jpg";
-import productImg14 from "../images/cmb-t-m.jpg";
-import productImg15 from "../images/reloj-dep.jpg";
-import productImg16 from "../images/dia-in01.jpg";
+// import productImg13 from "../images/au-in.jpg";
+// import productImg14 from "../images/cmb-t-m.jpg";
+// import productImg15 from "../images/reloj-dep.jpg";
+// import productImg16 from "../images/dia-in01.jpg";
 
-import productImg17 from "../images/por-len03.png";
-import productImg18 from "../images/lenovo-monitor-ideacentre-aio.png";
-import productImg19 from "../images/imp-ep-02.png";
-import productImg20 from "../images/smart-watch01.jpg";
+// import productImg17 from "../images/por-len03.png";
+// import productImg18 from "../images/lenovo-monitor-ideacentre-aio.png";
+// import productImg19 from "../images/imp-ep-02.png";
+// import productImg20 from "../images/smart-watch01.jpg";
 
-import productImg21 from "../images/por-len02.png";
+// import productImg21 from "../images/por-len02.png";
 
 // import productImg23 from "../images/wireless-01.png";
 
@@ -33,7 +33,7 @@ const products = [
   {
     id: "01",
     productName: "All-In-One Lenovo  ",
-    imgUrl: productImg01,
+    // imgUrl: productImg01,
     category: "computadores",
     price: 193,
     shortDesc:
@@ -52,7 +52,7 @@ const products = [
   {
     id: "02",
     productName: "Pc Escritorio HP ",
-    imgUrl: productImg02,
+    // imgUrl: productImg02,
     category: "computadores",
     price: 253,
     shortDesc:
@@ -75,7 +75,7 @@ const products = [
   {
     id: "03",
     productName: "All-In-One Lenovo Series L",
-    imgUrl: productImg03,
+    // imgUrl: productImg03,
     category: "computadores",
     price: 173,
     shortDesc:
@@ -97,7 +97,7 @@ const products = [
   {
     id: "04",
     productName: "iMac Max ",
-    imgUrl: productImg04,
+    // imgUrl: productImg04,
     category: "computadores",
     price: 253,
     shortDesc:
@@ -119,7 +119,7 @@ const products = [
   {
     id: "05",
     productName: "Portatil Lenovo MKL",
-    imgUrl: productImg05,
+    // imgUrl: productImg05,
     category: "impresoras",
     price: 163,
     shortDesc:
@@ -142,7 +142,7 @@ const products = [
   {
     id: "06",
     productName: "Portatil Lenovo GBK",
-    imgUrl: productImg06,
+    // imgUrl: productImg06,
     category: "impresoras",
     price: 163,
     shortDesc:
@@ -165,7 +165,7 @@ const products = [
   {
     id: "07",
     productName: "Portatil HP Gamer",
-    imgUrl: productImg07,
+    // imgUrl: productImg07,
     category: "computadores",
     price: 163,
     shortDesc:
@@ -187,7 +187,7 @@ const products = [
   {
     id: "08",
     productName: "Mac Book Pro",
-    imgUrl: productImg08,
+    // imgUrl: productImg08,
     category: "computadores",
     price: 99,
     shortDesc:
@@ -210,7 +210,7 @@ const products = [
   {
     id: "09",
     productName: "Impresora HP Laser Black",
-    imgUrl: productImg09,
+    // imgUrl: productImg09,
     category: "impresoras",
     price: 173,
     shortDesc:
@@ -233,7 +233,7 @@ const products = [
   {
     id: "10",
     productName: "Impresora HP Laser",
-    imgUrl: productImg10,
+    // imgUrl: productImg10,
     category: "impresora",
     price: 89,
     shortDesc:
@@ -256,7 +256,7 @@ const products = [
   {
     id: "11",
     productName: "Impresora Lexmark Multifuncional",
-    imgUrl: productImg11,
+    // imgUrl: productImg11,
     category: "impresoras",
     price: 112,
     shortDesc:
@@ -279,7 +279,7 @@ const products = [
   {
     id: "12",
     productName: "Impresora Epson Ecotank",
-    imgUrl: productImg12,
+    // imgUrl: productImg12,
     category: "impresoras",
     price: 799,
     shortDesc:
@@ -301,7 +301,7 @@ const products = [
   {
     id: "13",
     productName: "Audifonos Inalambricos",
-    imgUrl: productImg13,
+    // imgUrl: productImg13,
     category: "dispositivos",
     price: 99,
     shortDesc:
@@ -323,7 +323,7 @@ const products = [
   {
     id: "14",
     productName: "Combo teclado mouse",
-    imgUrl: productImg14,
+    // imgUrl: productImg14,
     category: "dispositivos",
     price: 799,
     shortDesc:
@@ -346,7 +346,7 @@ const products = [
   {
     id: "15",
     productName: "SmartWatch Deportivo",
-    imgUrl: productImg15,
+    // imgUrl: productImg15,
     category: "dispositivos",
     price: 599,
     shortDesc:
@@ -369,7 +369,7 @@ const products = [
   {
     id: "16",
     productName: "Auriculares Sony",
-    imgUrl: productImg16,
+    // imgUrl: productImg16,
     category: "dispositivos",
     price: 799,
     shortDesc:
@@ -392,7 +392,7 @@ const products = [
   {
     id: "17",
     productName: "Portatil lENOVO",
-    imgUrl: productImg17,
+    // imgUrl: productImg17,
     category: "computadores",
     price: 899,
     shortDesc:
@@ -415,7 +415,7 @@ const products = [
   {
     id: "18",
     productName: "All-In-One LENOVO Black",
-    imgUrl: productImg18,
+    // imgUrl: productImg18,
     category: "computadores",
     price: 699,
     shortDesc:
@@ -438,7 +438,7 @@ const products = [
   {
     id: "19",
     productName: "Impresora Epson MultiColor",
-    imgUrl: productImg19,
+    // imgUrl: productImg19,
     category: "impresoras",
     price: 299,
     shortDesc:
@@ -461,7 +461,7 @@ const products = [
   {
     id: "20",
     productName: "SmartWatch Sport",
-    imgUrl: productImg20,
+    // imgUrl: productImg20,
     category: "dispositivos",
     price: 299,
     shortDesc:
@@ -484,7 +484,7 @@ const products = [
   {
     id: "21",
     productName: "Portatil Lenovo XLM",
-    imgUrl: productImg21,
+    // imgUrl: productImg21,
     category: "computadores",
     price: 299,
     shortDesc:

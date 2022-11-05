@@ -4,7 +4,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import useAuth from "../../customs/useAuth";
-import userIcon from "../../assets/images/user-icon.png";
+import userIcon from "../../img/user-icon.png";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase.config";
@@ -18,7 +18,7 @@ import {
 
 import { motion } from "framer-motion";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../img/logo.png";
 
 import { Container, Row } from "reactstrap";
 import { toast } from "react-toastify";
@@ -40,6 +40,7 @@ const nav__links = [
 
 const Header = () => {
   const headerRef = useRef(null);
+  const profileActionRef = useRef(null);
 
   const { currentUser } = useAuth();
 
@@ -74,7 +75,7 @@ const Header = () => {
   });
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const profileActionRef = useRef(null);
+  
 
   const navigate = useNavigate();
 
@@ -135,7 +136,7 @@ const Header = () => {
                 <span className="badge">{totalQuantity}</span>
               </motion.span>
 
-              <span className="user__icon">
+              <div className="profile">
                 <motion.img
                   whileTap={{ scale: 1.2 }}
                   src={currentUser ? currentUser.photoURL : userIcon}
@@ -152,18 +153,19 @@ const Header = () => {
                     <span onClick={logout}>Cerrar sesion</span>
                   ) : (
                     <div className="d-flex align-items-center justify-content-center flex-column">
-                      <Link to="/signup">Registrar</Link>
-                      <Link to="/login">Acceder</Link>
+                      {/* <Link to="/signup">Registrar</Link>
+                      <Link to="/login">Acceder</Link> */}
                     </div>
                   )}
                 </div>
-              </span>
-            </div>
-
-            <div className="mobil__menu">
-              <span>
-                <FontAwesomeIcon icon={faBars} />
-              </span>
+              </div>
+              <Link to="/login">Acceder</Link>
+              <Link to="/signup">Registrar</Link>
+              <div className="mobil__menu">
+                <span>
+                  <FontAwesomeIcon icon={faBars} />
+                </span>
+              </div>
             </div>
           </div>
         </Row>

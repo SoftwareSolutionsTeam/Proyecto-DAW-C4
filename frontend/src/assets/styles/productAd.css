@@ -36,3 +36,7 @@ h3{
     background: rgb(255, 204, 204);
     color: rgb(221, 4, 4);
 }
+
+.tableCell{
+    width: 200px;
+}
