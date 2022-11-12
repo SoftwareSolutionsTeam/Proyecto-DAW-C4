@@ -1,6 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBagShopping,
+  faStar,
+  faHeart,
+  faEye,
+} from "@fortawesome/free-solid-svg-icons";
 //import productImg from "../../assets/images/pcs/lenovo/lenovo-laptop-ideapad-l3-hero.png";
 import { motion } from "framer-motion";
 import "../../assets/styles/product-card.css";
@@ -8,7 +13,7 @@ import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/slices/cartSlice";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
@@ -23,7 +28,7 @@ const ProductCard = ({ item }) => {
       })
     );
 
-    toast.success('Producto añadido a la bolsa')
+    toast.success("Producto añadido a la bolsa");
   };
 
   return (
@@ -36,13 +41,46 @@ const ProductCard = ({ item }) => {
           <h3 className="product__name">
             <Link to={`/shop/${item._id}`}>{item.nombre}</Link>
           </h3>
+          <span>
+            <div>
+              <span>
+                <FontAwesomeIcon icon={faStar} />
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faStar} />
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faStar} />
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faStar} />
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faStar} />
+              </span>
+            </div>
+          </span>
           <span>{item.categoria}</span>
         </div>
-        <div className="product__card-bottom d-flex align-items-center justify-content-between">
+        <div className="product__card-bottom d-flex align-items-center justify-content-left">
           <span className="price">${item.precio}</span>
           <motion.div
             whileTap={{ scale: 1.3 }}
-            className="icon-bottom"
+            className="icon-bottom-eye"
+            onClick=""
+          >
+            <Link to={`/shop/${item._id}`}><FontAwesomeIcon icon={faEye} /></Link>
+          </motion.div>         
+          <motion.div
+            whileTap={{ scale: 1.3 }}
+            className="icon-bottom-heart"
+            onClick=""
+          >
+            <FontAwesomeIcon icon={faHeart} />
+          </motion.div>
+          <motion.div
+            whileTap={{ scale: 1.3 }}
+            className="icon-bottom-bag"
             onClick={addToCart}
           >
             <FontAwesomeIcon icon={faBagShopping} />

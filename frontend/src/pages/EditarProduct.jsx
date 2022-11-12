@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import axios from "axios";
 import "../assets/styles/editar-product.css";
 import Helmet from "../components/Helmet/Helmet";
@@ -13,10 +13,10 @@ import {
   faWarehouse,
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const EditarProduct = () => {
-  //const params = useParams();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   //Hooks
@@ -27,7 +27,6 @@ const EditarProduct = () => {
   const [precio, setPrecio] = useState(0);
   const [inventario, setInventario] = useState(0);
   const [imagen, setImagen] = useState("");
-  //const [imagenActual, setImagenActual] = useState("");
   const [loading, setLoading] = useState(false);
 
   const uploadImage = async (e) => {
@@ -44,14 +43,11 @@ const EditarProduct = () => {
       }
     );
     const file = await res.json();
-    //console.log(res)
     setImagen(file.secure_url);
-    //console.log(file.secure_url)
     setLoading(false);
   };
 
   //Para volver atrás al index
-  const navegar = useNavigate();
 
   useEffect(() => {
     const recuperarProducto = () => {
@@ -62,7 +58,7 @@ const EditarProduct = () => {
     //console.log('ver id producto:',id)
 
     axios
-      .get("/producto/" + id) // { id: params.id }
+      .get("/api/producto/" + id) // { id: params.id }
 
       .then((res) => {
         //console.log('mensaje del data',res);
@@ -73,7 +69,6 @@ const EditarProduct = () => {
         setPrecio(dataproductos.precio);
         setInventario(dataproductos.inventario);
         setImagen(dataproductos.imagen);
-        //setImagenActual(dataproductos.imagen.url);
       });
   }, []);
 
@@ -91,10 +86,11 @@ const EditarProduct = () => {
 
     //Hacer la petición usando axios
     axios
-      .put("/producto/" + id, actualizarproducto)
+      .put("/api/producto/" + id, actualizarproducto)
       .then((res) => {
-        console.log("info res.data", res.data);
+        //console.log("info res.data", res.data);
         Swal.fire("Producto modificado..✔");
+        navigate("/productAd");
       })
       .then((err) => {
         console.log(err);
@@ -112,10 +108,12 @@ const EditarProduct = () => {
               </Link>
 
               <ul className="sidebarList">
-                <li className="sidebarListItem active">
-                  <FontAwesomeIcon icon={faUsers} className="sidebarIcon" />
-                  Clientes
-                </li>
+                <Link to="/clientes">
+                  <li className="sidebarListItem active">
+                    <FontAwesomeIcon icon={faUsers} className="sidebarIcon" />
+                    Clientes
+                  </li>
+                </Link>
 
                 <Link to="/productAd" className="link">
                   <li className="sidebarListItem active">
@@ -253,7 +251,7 @@ const EditarProduct = () => {
                   ) : (
                     <img
                       className="userUpdateImg"
-                      src=""
+                      src={imagen}
                       alt="imagen-producto"
                     />
                   )}

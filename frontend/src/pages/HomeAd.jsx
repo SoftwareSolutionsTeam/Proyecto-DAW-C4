@@ -9,14 +9,14 @@ import {
   faCreditCardAlt,
   faArrowDown,
   faArrowUp,
-  faWarehouse
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 
 const HomeAd = () => {
   return (
-            //  SIDEBAR
+    //  SIDEBAR
     <Helmet title={"Administrativo"}>
       <div className="content__board">
         <div className="siderbar">
@@ -25,12 +25,13 @@ const HomeAd = () => {
               <Link to="/admin" className="link">
                 <h3 className="sidebarTitle">Zona Admin</h3>
               </Link>
-
               <ul className="sidebarList">
-                <li className="sidebarListItem active">
-                  <FontAwesomeIcon icon={faUsers} className="sidebarIcon" />
-                  Clientes
-                </li>
+                <Link to="/clientes">
+                  <li className="sidebarListItem active">
+                    <FontAwesomeIcon icon={faUsers} className="sidebarIcon" />
+                    Clientes
+                  </li>
+                </Link>
 
                 <Link to="/productAd" className="link">
                   <li className="sidebarListItem active">
@@ -40,62 +41,64 @@ const HomeAd = () => {
                 </Link>
 
                 <Link to="/ventas" className="link">
-                <li className="sidebarListItem active">
-                  <FontAwesomeIcon
-                    icon={faCreditCardAlt}
-                    className="sidebarIcon"
-                  />
-                  Ventas
-                </li>
+                  <li className="sidebarListItem active">
+                    <FontAwesomeIcon
+                      icon={faCreditCardAlt}
+                      className="sidebarIcon"
+                    />
+                    Ventas
+                  </li>
                 </Link>
 
                 <Link to="/inventario" className="link">
-                <li className="sidebarListItem active">
-                  <FontAwesomeIcon
-                    icon={faWarehouse}
-                    className="sidebarIcon"
-                  />
-                  Inventario
-                </li>
+                  <li className="sidebarListItem active">
+                    <FontAwesomeIcon
+                      icon={faWarehouse}
+                      className="sidebarIcon"
+                    />
+                    Inventario
+                  </li>
                 </Link>
-
               </ul>
             </div>
           </div>
         </div>
 
-            {/* Zona Administrativa */}
+        {/* Zona Administrativa */}
         <div className="featured">
           <div className="content__body">
+            
             <div className="featuredItem">
               <span className="featuredTitle">Productos vendidos</span>
               <div className="featuredMoneyContainer">
                 <span className="featuredMoney">153</span>
-                <span className="featuredMoneyRate">
+                {/* <span className="featuredMoneyRate">
                   -1.4%
                   <FontAwesomeIcon
                     icon={faArrowDown}
                     className="featuredIcon negative"
                   />
-                </span>
+                </span> */}
               </div>
               <span className="featuredSub">Comparado al último mes</span>
             </div>
+
             <div className="featuredItem">
-              <span className="featuredTitle">Ventas</span>
+              <span className="featuredTitle">Total ventas</span>
               <div className="featuredMoneyContainer">
                 <span className="featuredMoney">$9.962</span>
-                <span className="featuredMoneyRate">
+                {/* <span className="featuredMoneyRate">
                   1.4%
                   <FontAwesomeIcon
                     icon={faArrowUp}
                     className="featuredIcon positive"
                   />
-                </span>
+                </span> */}
               </div>
               <span className="featuredSub">Comparado al último mes</span>
             </div>
-            <div className="featuredItem">
+
+            {/* <div className="featuredItem">
               <span className="featuredTitle">Ganancias</span>
               <div className="featuredMoneyContainer">
                 <span className="featuredMoney">$ 1.731</span>
@@ -108,7 +111,18 @@ const HomeAd = () => {
                 </span>
               </div>
               <span className="featuredSub">Comparado al último mes</span>
+            </div> */}
+
+            <div className="featuredItem">
+              <span className="featuredTitle">Total productos</span>
+              <div className="featuredMoneyContainer">
+                <span className="featuredMoney"> 1.031</span>
+                <span className="featuredMoneyRate">
+                </span>
+              </div>
+              <span className="featuredSub">Comparado al último mes</span>
             </div>
+
           </div>
         </div>
       </div>

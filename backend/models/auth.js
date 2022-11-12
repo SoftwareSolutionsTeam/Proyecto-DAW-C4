@@ -20,7 +20,7 @@ const usuarioSchema = new mongoose.Schema({
         type: String,
         required: [true, "Por favor registre una contraseña"],
         minlength: [8, "Tu contraseña no puede tener menos de 8 caracteres"],
-        select: false
+        select: true
     },
     avatar: {
         public_id: {

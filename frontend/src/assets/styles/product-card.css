@@ -3,6 +3,24 @@
     cursor: pointer;
 }
 
+.product__img{
+    width: 250px;
+    height: 250px;
+}
+
+.icon-bottom-eye{
+    margin-right: 10px;
+}
+
+.icon-bottom-heart{
+    margin-right: 10px;
+}
+
+.icon-bottom-bag{
+    margin-right: 10px;
+}
+
+
 .product__info h3{
     font-size: 1.2rem;
     color: var(--primary-color);
@@ -18,6 +36,10 @@
     color: var(--primary-color);
     font-size: 1.3rem;
     font-weight: 600;
+}
+
+.price{
+    margin-right: 50px;
 }
 
 /* .product__card-bottom div{

@@ -1,7 +1,6 @@
 const mongoose=require("mongoose")
 
 const productosSchema=mongoose.Schema({
-
     nombre:{
         type:String,
         required:[true,"Por favor registra el nombre del producto."],

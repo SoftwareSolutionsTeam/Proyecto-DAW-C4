@@ -1,5 +1,6 @@
 const express=require("express");
-const { registroUsuario, 
+const { 
+    registroUsuario, 
     loginUser, 
     logOut, 
     forgotPassword, 
@@ -24,8 +25,10 @@ router.route('/yo').get(isAuthenticatedUser, getUserProfile)
 router.route('/yo/updatePassword').put(isAuthenticatedUser, updatePassword)
 router.route('/yo/updateProfile').put(isAuthenticatedUser, updateProfile)
 
-//rutas admin
+// rutas admin
 router.route('/admin/allUsers').get(isAuthenticatedUser, authorizeRoles("admin"), getAllUsers)
+// router.route('/admin/allUsers').get(getAllUsers)
+
 router.route('/admin/user/:id').get(isAuthenticatedUser, authorizeRoles("admin"), getUserDetails)
 router.route('/admin/updateUser/:id').put(isAuthenticatedUser, authorizeRoles("admin"), updateUser)
 router.route("/admin/deleteUser/:id").delete(isAuthenticatedUser, authorizeRoles("admin"), deleteUser)

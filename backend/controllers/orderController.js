@@ -2,11 +2,12 @@ const Order=require("../models/order");
 const Product= require("../models/productos")
 const catchAsyncErrors= require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
+const productos = require("../models/productos");
 
 //Crear una nueva orden
-exports.newOrder= catchAsyncErrors (async (req, res, next)=>{
+exports.newOrder= catchAsyncErrors (async (req, res)=>{
     const {
-        Items,
+        items,
         envioInfo,
         precioItems,
         precioImpuesto,
@@ -14,9 +15,10 @@ exports.newOrder= catchAsyncErrors (async (req, res, next)=>{
         precioTotal,
         pagoInfo
     } = req.body;
+        console.log("items dentro de newOrder",items.cantidad)
 
     const order= await Order.create({
-        Items,
+        items,
         envioInfo,
         precioItems,
         precioImpuesto,
@@ -27,10 +29,38 @@ exports.newOrder= catchAsyncErrors (async (req, res, next)=>{
         user: req.user._id
     })
 
+   
+        // const producto = await productos.findById(items.Product);
+        //     console.log("producto antes ", producto)
+        
+        
+        producto.inventario = producto.inventario - items.cantidad;
+        console.log("producto despues ",producto)
+
+        const { id  } = producto
+
+        const inventario = producto.inventario - items.cantidad
+
+        await productos
+
+            .updateOne({ _id: id },{$set: {inventario}})
+
+            .then((data) => res.json(data))
+
+            .catch((error) => res.json({ message: error }))
+    
+        await producto.save({validateBeforeSave: false})
+        
+
     res.status(201).json({
         success:true,
         order
     })
+
+    
+
+
+    console.log()
 })
 
 //Ver una orden
@@ -66,6 +96,7 @@ exports.allOrders= catchAsyncErrors(async (req, res, next)=>{
     orders.forEach(order =>{
         cantidadTotal= cantidadTotal + order.precioTotal
        // cantidadTotal += order.precioTotal
+      
     })
 
     res.status(200).json({
@@ -75,6 +106,10 @@ exports.allOrders= catchAsyncErrors(async (req, res, next)=>{
     })
 
 })
+
+// product.inventario - order.items.cantidad
+
+
 
 //Editar una orden (admin) 
 exports.updateOrder= catchAsyncErrors(async(req, res, next)=>{
@@ -90,6 +125,10 @@ exports.updateOrder= catchAsyncErrors(async(req, res, next)=>{
 
     order.estado= req.body.estado;
     order.fechaEnvio= Date.now();
+    console.log(items.cantidad)
+    order.items.forEach(async (items) => {
+        await updateStock(items.producto, items.cantidad);
+      });
 
     await order.save()
 
@@ -99,11 +138,9 @@ exports.updateOrder= catchAsyncErrors(async(req, res, next)=>{
     })
 })
 
-async function updateStock(id, quantity){
-    const product = await Product.findById(id);
-    product.inventario= product.inventario-quantity;
-    await product.save({validateBeforeSave: false})
-}
+
+
+
 
 //Eliminar una orden (admin)
 exports.deleteOrder = catchAsyncErrors(async (req, res, next)=>{

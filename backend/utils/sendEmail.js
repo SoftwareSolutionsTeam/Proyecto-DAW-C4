@@ -5,12 +5,13 @@ const sendEmail = async options =>{
         host: "smtp.mailtrap.io",
         port: 2525,
         auth: {
-          user: "fecedc33472cca",
-          pass: "7cfc9c007a4731"
+          user: "38fe14558837ef",
+          pass: "b8e3b7443bb742"
         }
       });
+
     const mensaje={
-        from: "tecno.Store <noreply@vetyshop.com>",
+        from: "tecno.Store <noreply@tecnostore.com>",
         to: options.email,
         subject: options.subject,
         text: options.mensaje

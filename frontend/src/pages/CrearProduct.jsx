@@ -9,7 +9,6 @@ import {
   faCreditCardAlt,
   faWarehouse,
   faUpload,
-  faTowerBroadcast,
 } from "@fortawesome/free-solid-svg-icons";
 
 //import {useDispatch, useSelector} from 'react-redux'
@@ -17,11 +16,12 @@ import {
 //import {toast} from 'react-toastify'
 //import { PRODUCT_CREATE_SUCCESS } from "../constants/productConstants";
 //import productos from "../../../backend/models/productos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Select, MenuItem } from "@mui/material";
+
 
 const CrearProduct = () => {
+
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -29,6 +29,7 @@ const CrearProduct = () => {
   const [inventario, setInventario] = useState();
   const [imagen, setImagen] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -60,14 +61,14 @@ const CrearProduct = () => {
       precio: precio,
       inventario: inventario,
     };
-    //console.log(producto);
+    console.log(producto);
 
     axios
-      .post("/producto/nuevo", producto)
+      .post("/api/producto/nuevo", producto)
       .then((res) => {
         //toast.success('El producto se creó con éxito')
-        Swal.fire("Nuevo producto creado..🆗");
-        // navegar("/productAd");
+        Swal.fire("Nuevo producto creado..✔");
+        navigate("/productAd");
       })
       .then((err) => {
         console.log(err);
@@ -85,10 +86,12 @@ const CrearProduct = () => {
               </Link>
 
               <ul className="sidebarList">
-                <li className="sidebarListItem active">
-                  <FontAwesomeIcon icon={faUsers} className="sidebarIcon" />
-                  Clientes
-                </li>
+                <Link to="/clientes">
+                  <li className="sidebarListItem active">
+                    <FontAwesomeIcon icon={faUsers} className="sidebarIcon" />
+                    Clientes
+                  </li>
+                </Link>
 
                 <Link to="/productAd" className="link">
                   <li className="sidebarListItem active">
@@ -224,13 +227,135 @@ const CrearProduct = () => {
                   ) : (
                     <img
                       className="userUpdateImg"
-                      src=""
+                      src={imagen}
                       alt="imagen-producto"
                     />
                   )}
                 </div>
               </div>
             </form>
+
+            {/* <div className="userUpdateLeft">
+              <Form>
+                <FormGroup row>
+                  <Label for="exampleEmail" sm={2}>
+                    Nombre
+                  </Label>
+                  <Col sm={10}>
+                    <Input
+                      id="exampleEmail"
+                      name="text"
+                      placeholder=""
+                      type="text"
+                    />
+                  </Col>
+                </FormGroup>
+
+                <FormGroup row>
+                  <Label for="exampleSelect" sm={2}>
+                    Categoría
+                  </Label>
+                  <Col sm={10}>
+                    <Input id="exampleSelect" name="select" type="select">
+                      <option>Seleccione categoría</option>
+                      <option>computadores</option>
+                      <option>impresoras</option>
+                      <option>dispositivos</option>
+                    </Input>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup row>
+                  <Label for="exampleText" sm={2}>
+                    Descripción
+                  </Label>
+                  <Col sm={10}>
+                    <Input id="exampleText" name="text" type="textarea" />
+                  </Col>
+                </FormGroup>
+
+                <FormGroup row>
+                  <Label for="exampleEmail" sm={2}>
+                    Precio
+                  </Label>
+                  <Col sm={10}>
+                    <Input
+                      id="exampleEmail"
+                      name="email"
+                      placeholder=""
+                      type="number"
+                    />
+                  </Col>
+                </FormGroup>
+
+                <FormGroup row>
+                  <Label for="exampleEmail" sm={2}>
+                    Stock
+                  </Label>
+                  <Col sm={10}>
+                    <Input
+                      id="exampleEmail"
+                      name="stock"
+                      placeholder=""
+                      type="number"
+                    />
+                  </Col>
+                </FormGroup>
+
+                <FormGroup row>
+                  <Label for="exampleFile" sm={2}>
+                    Imagen
+                  </Label>
+                  <Col sm={10}>
+                    <Input id="exampleFile" name="file" type="file" />
+                    <FormText>
+                      This is some placeholder block-level help text for the
+                      above input. It‘s a bit lighter and easily wraps to a new
+                      line.
+                    </FormText>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup check row>
+                  <Col
+                    sm={{
+                      offset: 2,
+                      size: 10,
+                    }}
+                  >
+                    <Button>Submit</Button>
+                  </Col>
+                </FormGroup>
+              </Form>
+            </div>
+
+            <div className="userUpdateRight">
+            <div className="userUpdateUpload">
+                  <label htmlFor="file" className="text__up">
+                    <FontAwesomeIcon
+                      icon={faUpload}
+                      className="userUpdateIcon"
+                    />
+                    <span>Cargar imagen</span>
+                  </label>
+                  <input
+                    type="file"
+                    id="file"
+                    style={{ display: "none" }}
+                    value=""
+                    onChange={uploadImage}
+                  />
+                  {loading ? (
+                    <h3>Cargando imagen...</h3>
+                  ) : (
+                    <img
+                      className="userUpdateImg"
+                      src={imagen}
+                      alt="imagen-producto"
+                    />
+                  )}
+                </div>
+            </div> */}
 
             {/* <button onClick={nuevoProducto} className="btn__modificar">Crear</button> */}
           </div>

@@ -11,12 +11,9 @@ exports.isAuthenticatedUser= catchAsyncErrors(async (req, res, next)=>{
     if(!token){
         return next(new ErrorHandler("Debe iniciar sesion para acceder a este recurso", 401))
     }
-
     const decodificada = jwt.decode(token, process.env.JWT_SECRET)
     req.user=await User.findById(decodificada.id);
-
     next()
-
 })
 
 //Capturamos role

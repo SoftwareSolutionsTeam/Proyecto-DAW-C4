@@ -60,7 +60,7 @@ const Inventario = () => {
             </div>
           </div>
         </div>
-        Inventario general de productos
+        Inventario general :: próximamente...🚧
       </div>
     </Helmet>
   );

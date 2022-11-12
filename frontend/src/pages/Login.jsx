@@ -8,6 +8,7 @@ import { auth } from "../firebase.config";
 import { toast } from "react-toastify";
 
 const Login = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,7 +72,7 @@ const Login = () => {
                     Entrar
                   </button>
                   <p>
-                    ¿No tienes cuenta? <Link to="/signup">crea una aquí</Link>
+                    ¿No tienes cuenta? <Link to="/">crea una aquí</Link>
                   </p>
                 </Form>
               </Col>

@@ -8,6 +8,44 @@
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
+.btn__accesos{
+  background: transparent;
+  color: black;
+  border: none;
+}
+
+.btn__accesos:hover{
+    background: none;
+}
+
+.dropmenu{
+    height: 140px;
+}
+
+.icon__acces{
+    margin-right: 8px;
+}
+
+.icon__bag{
+    width: 22px;
+    height: 22px;
+}
+
+.icon__heart{
+    width: 22px;
+    height: 22px;
+}
+
+.btn__dropItem{
+    width: auto;
+    display: flex;
+    height: 35px;
+    margin: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav__wraper{
     display: flex;
     align-items: center;
@@ -56,6 +94,7 @@
     position: relative;
     z-index: 9;
 }
+
 
 .nav__icons .profile .profile__actions{
     position: absolute;

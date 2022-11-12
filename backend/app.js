@@ -3,10 +3,14 @@ const cors = require('cors')
 const app = express();
 const errorMiddleware= require("./middleware/errors")
 const cookieParser= require("cookie-parser")
+const fileUpload = require('express-fileupload')
+const bodyParser = require('body-parser')
 
 app.use(express.json());
 app.use(cors())
 app.use(cookieParser());
+app.use(fileUpload());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Importar rutas
 const productos=require("./routes/products")

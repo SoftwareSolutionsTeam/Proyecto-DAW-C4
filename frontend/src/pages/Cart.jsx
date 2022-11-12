@@ -84,7 +84,7 @@ const Tr = ({ item }) => {
       </td>
       <td>{item.nombre}</td>
       <td>{item.price}</td>
-      <td>{item.quantity}px</td>
+      <td>x{item.quantity}</td>
       <td>
         <motion.span whileTap={{ scale: 1.2 }} onClick={deleteProduct}>
           <FontAwesomeIcon icon={faTrash} />
