@@ -20,7 +20,7 @@ const EditarProduct = () => {
   const { id } = useParams();
 
   //Hooks
-  const [idProducto, setIdProducto] = useState("");
+  const [ setIdProducto] = useState("");
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -69,7 +69,7 @@ const EditarProduct = () => {
         setInventario(dataproductos.inventario);
         setImagen(dataproductos.imagen);
       });
-  }, []);
+  }, [id, setIdProducto]);
 
   //Función que actualiza
   function editarProducto() {
