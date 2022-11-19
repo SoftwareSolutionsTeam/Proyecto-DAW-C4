@@ -4,12 +4,6 @@ import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../assets/styles/login.css";
 
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { setDoc, doc } from "firebase/firestore";
-import { auth } from "../firebase.config";
-import { storage } from "../firebase.config";
-import { db } from "../firebase.config";
 
 import { toast } from "react-toastify";
 
@@ -19,56 +13,55 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
 
-  const signup = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  // const signup = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+  //   try {
+  //     const userCredential = await createUserWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
 
-      const user = userCredential.user;
+  //     const user = userCredential.user;
 
-      const storageRef = ref(storage, `images/${Date.now() + userName}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
+  //     const storageRef = ref(storage, `images/${Date.now() + userName}`);
+  //     const uploadTask = uploadBytesResumable(storageRef, file);
 
-      uploadTask.on(
-        (error) => {
-          toast.error(error.message);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            //update user profile
-            await updateProfile(user, {
-              displayName: userName,
-              photoURL: downloadURL,
-            });
+  //     uploadTask.on(
+  //       (error) => {
+  //         toast.error(error.message);
+  //       },
+  //       () => {
+  //         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+  //           //update user profile
+  //           await updateProfile(user, {
+  //             displayName: userName,
+  //             photoURL: downloadURL,
+  //           });
 
-            //store user data in firestore database
-            await setDoc(doc(db, "users", user.uid), {
-              uid: user.uid,
-              displayName: userName,
-              email,
-              photoURL: downloadURL,
-            });
-          });
-        }
-      );
+  //           //store user data in firestore database
+  //           await setDoc(doc(db, "users", user.uid), {
+  //             uid: user.uid,
+  //             displayName: userName,
+  //             email,
+  //             photoURL: downloadURL,
+  //           });
+  //         });
+  //       }
+  //     );
 
-      setLoading(false);
-      toast.success("Cuenta creada..✔");
-      navigate("/login");
-    } catch (error) {
-      setLoading(false);
-      toast.error("Algo salió mal..❌");
-    }
-  };
+  //     setLoading(false);
+  //     toast.success("Cuenta creada..✔");
+  //     navigate("/login");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     toast.error("Algo salió mal..❌");
+  //   }
+  // };
 
   return (
     <Helmet title="Registrar cuenta">
@@ -81,9 +74,9 @@ const Signup = () => {
               </Col>
             ) : (
               <Col lg="6" className="m-auto text-center">
-                <h3 className="fw-bold mb-4">Regístrate</h3>
+                <h3 className="fw-bold mb-4">Regístrate 📝</h3>
 
-                <Form className="auth__form" onSubmit={signup}>
+                <Form className="auth__form" onSubmit="">
                   <FormGroup className="form__group">
                     <input
                       type="text"

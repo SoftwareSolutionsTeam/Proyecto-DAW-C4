@@ -13,10 +13,10 @@ import {
   faWarehouse,
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const EditarProduct = () => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const { id } = useParams();
 
   //Hooks
@@ -47,7 +47,6 @@ const EditarProduct = () => {
     setLoading(false);
   };
 
-  //Para volver atrás al index
 
   useEffect(() => {
     const recuperarProducto = () => {
@@ -58,7 +57,7 @@ const EditarProduct = () => {
     //console.log('ver id producto:',id)
 
     axios
-      .get("/api/producto/" + id) // { id: params.id }
+      .get("/api/producto/" + id)
 
       .then((res) => {
         //console.log('mensaje del data',res);
@@ -90,7 +89,7 @@ const EditarProduct = () => {
       .then((res) => {
         //console.log("info res.data", res.data);
         Swal.fire("Producto modificado..✔");
-        navigate("/productAd");
+        <Navigate to="/ProductAd" />;
       })
       .then((err) => {
         console.log(err);

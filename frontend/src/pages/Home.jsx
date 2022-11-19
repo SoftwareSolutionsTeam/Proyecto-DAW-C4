@@ -5,18 +5,16 @@ import { motion } from "framer-motion";
 
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
-import heroImg from "../img/dia-in01.jpg";
+import heroImg from "../img/asus1.png";
 import "../assets/styles/home.css";
 import Services from "../services/Services";
 import ProductsList from "../components/UI/ProductsList";
-
 
 const Home = () => {
 
   const [trendingProducts,setTrendingProducts] = useState([])
   const [bestSalesProducts,setBestSalesProducts] = useState([])
-
-
+ 
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch('http://localhost:5001/api/productos')
@@ -30,7 +28,7 @@ const Home = () => {
          });
    }, []);
 
-  const year = new Date().getFullYear();
+  // const year = new Date().getFullYear();
 
   useEffect(()=>{
     const filteredTrendingProducts = products.filter(item => item.category === 'computadores');
@@ -49,10 +47,10 @@ const Home = () => {
             <Col lg="6" md="6">
               <div className="hero__content">
                 <p className="hero__subtitle">
-                  Tendencias en Auriculares para el {year}
+                  Tendencias en equipos portátiles para el 2023
                 </p>
-                <h3>Wireless</h3>
-                <h2>HEADPHONES</h2>
+                <h3>Zenbook Pro 16x OLED (UX7602)</h3>
+                <h2> ASUS ZENBOOK </h2>
                 <motion.button whileTap={{ scale: 1.2 }} className="buy__btn">
                   <Link to="/shop">Ver detalles</Link>
                 </motion.button>

@@ -31,8 +31,6 @@ const Checkout = () => {
     };
     //console.log(orden);
 
-
-
     axios
       .post("/api/order/new", orden)
       .then((res) => {
@@ -44,6 +42,7 @@ const Checkout = () => {
         console.log(err);
       });
   }
+  
 
   return (
     <Helmet title="Checkout">
@@ -99,7 +98,7 @@ const Checkout = () => {
                     }}
                   />
                 </FormGroup>
-                  <button type="submit" className="buy__btn auth__btn">Ordenar </button>
+                  {/* <button type="submit" className="buy__btn auth__btn">Ordenar </button> */}
               </Form>
             </Col>
 
@@ -122,7 +121,7 @@ const Checkout = () => {
                 <h4>
                   Total compra: <span>${totalAmount}</span>
                 </h4>
-                {/* <button type="submit" className="buy__btn auth__btn">Ordenar </button> */}
+                <button type="submit" className="buy__btn auth__btn">Ordenar </button>
               </div>
             </Col>
           </Row>

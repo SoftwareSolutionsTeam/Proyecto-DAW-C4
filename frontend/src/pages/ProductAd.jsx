@@ -41,7 +41,7 @@ const ProductAd = () => {
   }, []);
 
   const handleGuardarIdEditar = (row) => {
-    //console.log("row", row);
+    console.log("row", row);
     localStorage.setItem("productoAEditar", JSON.stringify(row));
   };
 

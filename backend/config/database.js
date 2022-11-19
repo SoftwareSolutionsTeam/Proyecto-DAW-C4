@@ -1,13 +1,10 @@
 const mongoose=require("mongoose");
 
 const connectDatabase = () => {
-    mongoose.connect(process.env.DB_LOCAL_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }).then(con => {
-        console.log(`Conectado a base de datos ↔`)//, servidor: ${con.connection.host}
-    }).catch(con => {
-        console.log(`No se logro la conexion con la base de datos`)
-    })
+    
+    mongoose.connect(process.env.ATLAS_URI)
+    .then(() => console.log("Connected to MongoDB Atlas"))
+
+    .catch((error) => console.error(error));
 }
 module.exports=connectDatabase;

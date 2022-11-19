@@ -1,42 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../assets/styles/login.css";
+import { login, clearErrors } from "../../src/actions/userActions"
+import { useDispatch, useSelector } from 'react-redux'
 
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase.config";
 
-import { toast } from "react-toastify";
+const Login2 = () => {
 
-const Login = () => {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading] = useState()
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth)
+  console.log("auth desde login",auth)
+  // const { isAuthenticated, error, loading } = useSelector(state => state.auth)
 
-  const signIn = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  // useEffect(() => {
+  //     if (isAuthenticated) {
+  //         navigate("/")
+  //     }
+  //     if (error) {
+  //         dispatch(clearErrors)
+  //     }
+  // }, [dispatch, isAuthenticated, error, navigate])
 
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+  const submitHandler = (e) => {
+      e.preventDefault();
+      dispatch(login(email, password))
+  }
 
-      const user = userCredential.user;
-      console.log(user);
-      setLoading(false);
-      toast.success("Iniciando sesión...");
-      navigate("/");
-    } catch (error) {
-      setLoading(false);
-      toast.error(error.message);
-    }
-  };
+
+
+  // const signIn = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   try {
+  //     const userCredential = await signInWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
+
+  //     const user = userCredential.user;
+  //     console.log(user);
+  //     setLoading(false);
+  //     toast.success("Iniciando sesión...");
+  //     navigate("/checkout");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     toast.error(error.message);
+  //   }
+  // };
 
   return (
     <Helmet title="Iniciar sesión">
@@ -49,9 +67,9 @@ const Login = () => {
               </Col>
             ) : (
               <Col lg="6" className="m-auto text-center">
-                <h3 className="fw-bold mb-4">Iniciar sesión</h3>
+                <h3 className="fw-bold mb-4">Iniciar sesión ⏩</h3>
 
-                <Form className="auth__form" onSubmit={signIn}>
+                <Form className="auth__form" onSubmit={submitHandler}>
                   <FormGroup className="form__group">
                     <input
                       type="email"
@@ -86,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login2;

@@ -1,41 +1,133 @@
 import {
-    LOGIN_REQUEST,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    REGISTER_USER_REQUEST,
-    REGISTER_USER_SUCCESS,
-    REGISTER_USER_FAIL,
-    CLEAR_ERRORS
-} from "../constants/userConstants"
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
+  CLEAR_ERRORS,
+  LOAD_USER_REQUEST,
+  LOAD_USER_SUCCESS,
+  LOAD_USER_FAIL,
+  UPDATE_PROFILE_FAIL,
+  UPDATE_PASSWORD_FAIL,
+  UPDATE_USER_FAIL,
+  DELETE_USER_FAIL,
+  DELETE_USER_RESET,
+  UPDATE_USER_RESET,
+  UPDATE_PASSWORD_RESET,
+  UPDATE_PROFILE_RESET,
+  UPDATE_USER_SUCCESS,
+  UPDATE_PASSWORD_SUCCESS,
+  UPDATE_PROFILE_SUCCESS,
+  DELETE_USER_REQUEST,
+  UPDATE_USER_REQUEST,
+  UPDATE_PASSWORD_REQUEST,
+  UPDATE_PROFILE_REQUEST,
+  DELETE_USER_SUCCESS,
+} from "../constants/userConstants";
 
 export const authReducer = (state = { user: {} }, action) => {
+  switch (action.type) {
+    case LOGIN_REQUEST:
+    case REGISTER_USER_REQUEST:
+    case LOAD_USER_REQUEST:
+      return {
+        loading: true,
+        isAuthenticated: false,
+      };
+
+    case LOGIN_SUCCESS:
+    case REGISTER_USER_SUCCESS:
+    case LOAD_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: true,
+        user: action.payload,
+      };
+
+    case LOAD_USER_FAIL:
+      return {
+        loading: false,
+        isAuthenticated: false,
+        user: null,
+        error: action.payload,
+      };
+
+    case LOGIN_FAIL:
+    case REGISTER_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: false,
+        user: null,
+        error: action.payload,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+}
+
+//Actualizar usuario, actualizar contraseña
+export const userReducer = (state = {}, action) => {
     switch (action.type) {
 
-        case LOGIN_REQUEST:
-        case REGISTER_USER_REQUEST:
+        case UPDATE_PROFILE_REQUEST:
+        case UPDATE_PASSWORD_REQUEST:
+        case UPDATE_USER_REQUEST:
+        case DELETE_USER_REQUEST:
             return {
-                loading: true,
-                isAuthenticated: false
+                ...state,
+                loading: true
             }
-        
-        case LOGIN_SUCCESS:
-        case REGISTER_USER_SUCCESS:
+
+        case UPDATE_PROFILE_SUCCESS:
+        case UPDATE_PASSWORD_SUCCESS:
+        case UPDATE_USER_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                isAuthenticated: true,
-                user: action.payload
+                isUpdated: action.payload
             }
-            
-        case LOGIN_FAIL:
-        case REGISTER_USER_FAIL:
+
+        case DELETE_USER_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                isAuthenticated: false,
-                user: null,
+                isDeleted: action.payload
+            }
+
+        case UPDATE_PROFILE_RESET:
+        case UPDATE_PASSWORD_RESET:
+        case UPDATE_USER_RESET:
+            return {
+                ...state,
+                isUpdated: false
+            }
+
+        case DELETE_USER_RESET:
+            return {
+                ...state,
+                isDeleted: false
+            }
+
+        case UPDATE_PROFILE_FAIL:
+        case UPDATE_PASSWORD_FAIL:
+        case UPDATE_USER_FAIL:
+        case DELETE_USER_FAIL:
+            return {
+                ...state,
+                loading: false,
                 error: action.payload
             }
+
         case CLEAR_ERRORS:
             return {
                 ...state,
@@ -43,6 +135,7 @@ export const authReducer = (state = { user: {} }, action) => {
             }
 
         default:
-            return state
+            return state;
     }
 }
+

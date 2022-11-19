@@ -7,7 +7,6 @@ const crypto = require("crypto")
 const cloudinary= require("cloudinary")
 
 //Registrar un nuevo usuario /api/usuario/registro
-
 exports.registroUsuario= catchAsyncErrors(async (req, res, next) =>{
     const {nombre, email, password} = req.body;
 
@@ -34,7 +33,7 @@ exports.registroUsuario= catchAsyncErrors(async (req, res, next) =>{
 //Iniciar Sesion - Login
 exports.loginUser = catchAsyncErrors(async(req, res, next)=>{
     const { email, password} =  req.body;
-
+    console.log("datos del login",req.body)
     //revisar si los campos estan completos
     if (!email || !password){
         return next(new ErrorHandler("Por favor ingrese email & Contraseña", 400))
@@ -42,6 +41,7 @@ exports.loginUser = catchAsyncErrors(async(req, res, next)=>{
 
     //Buscar al usuario en nuestra base de datos
     const user = await User.findOne({email}).select("+password")
+        console.log("usuario",user)
     if(!user){
         return next(new ErrorHandler("Email o contraseña invalidos", 401))
     }
@@ -70,6 +70,11 @@ exports.logOut = catchAsyncErrors(async(req, res, next)=>{
         message: "Cerró sesión"
     })
 })
+
+
+
+
+
 
 //Olvide mi contraseña, recuperar contraseña
 exports.forgotPassword = catchAsyncErrors ( async( req, res, next) =>{

@@ -1,4 +1,3 @@
-
 //Crear y enviar un token guarado en una cookie
 const tokenEnviado= (user, statusCode, res) =>{
 
