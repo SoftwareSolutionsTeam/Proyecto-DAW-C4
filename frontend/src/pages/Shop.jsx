@@ -13,7 +13,7 @@ const Shop = () => {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5001/api/productos')
+    fetch('https://tecnostore.herokuapp.com')
          .then((response) => response.json())
          .then((data) => {
            setProducts(data.productos);

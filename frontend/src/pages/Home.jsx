@@ -17,7 +17,7 @@ const Home = () => {
  
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5001/api/productos')
+    fetch('https://tecnostore.herokuapp.com/api/productos')
          .then((response) => response.json())
          .then((data) => {
             console.log(data);

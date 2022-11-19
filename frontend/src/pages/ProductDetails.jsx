@@ -27,7 +27,7 @@ const ProductDetails = () => {
 
   const [prod, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5001/api/producto/'+id)
+    fetch('https://tecnostore.herokuapp.com/api/producto/'+id)
          .then((response) => response.json())
          .then((data) => {
            setProducts(data.product);
