@@ -85,7 +85,7 @@ const EditarProduct = () => {
 
     //Hacer la petición usando axios
     axios
-      .put("/api/producto/" + id, actualizarproducto)
+      .put("https://tecnostore.herokuapp.com/api/producto/" + id, actualizarproducto)
       .then((res) => {
         //console.log("info res.data", res.data);
         Swal.fire("Producto modificado..✔");

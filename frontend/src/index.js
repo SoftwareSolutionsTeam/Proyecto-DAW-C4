@@ -14,7 +14,7 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-axios.defaults.baseURL = 'https://tecnostore.herokuapp.com';
+//axios.defaults.baseURL = 'https://tecnostore.herokuapp.com';
 
 root.render(
   <React.StrictMode>

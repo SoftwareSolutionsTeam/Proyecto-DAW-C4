@@ -104,15 +104,19 @@ exports.newProduct=catchAsyncErrors(async(req,res,next)=>{
   })
 })
 
-//api alterna para agregar producto nuevo /api/agregarproducto
-exports.nuevoProducto=catchAsyncErrors(async(req,res,next)=>{
-  const product= await producto.create(req.body);
 
-  res.status(201).json({
-      success:true,
-      product
-  })
-})
+
+
+//api alterna para agregar producto nuevo /api/agregarproducto
+
+// exports.nuevoProducto=catchAsyncErrors(async(req,res,next)=>{
+//   const product= await producto.create(req.body);
+
+//   res.status(201).json({
+//       success:true,
+//       product
+//   })
+// })
 
 
 /*
