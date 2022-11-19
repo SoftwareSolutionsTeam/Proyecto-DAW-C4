@@ -32,7 +32,7 @@ const Clientes = () => {
 
   const [usuarios, setUsuarios] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/api/admin/allUsers")
+    fetch("https://tecnostore.herokuapp.com/api/admin/allUsers")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

@@ -34,7 +34,7 @@ const Ventas = () => {
 
   const [ordenes, setOrdenes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/api/admin/orders")
+    fetch("https://tecnostore.herokuapp.com/api/admin/orders")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
