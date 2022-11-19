@@ -37,18 +37,17 @@ const CrearProduct = () => {
     data.append("file", files[0]);
     data.append("upload_preset", "images");
     setLoading(true);
+    //https://tecnostore.herokuapp.com
     //http://api.cloudinary.com/v1_1/tecnostore/upload
     const res = await fetch(
-      "https://tecnostore.herokuapp.com/api.cloudinary.com/v1_1/tecnostore/upload",
+      "https://api.cloudinary.com/v1_1/tecnostore.herokuapp.com/tecnostore/upload",
       {
         method: "POST",
         body: data,
       }
     );
     const file = await res.json();
-    //console.log(res)
     setImagen(file.secure_url);
-    //console.log(file.secure_url)
     setLoading(false);
   };
 
