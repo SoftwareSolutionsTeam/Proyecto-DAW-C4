@@ -6,6 +6,9 @@ const cloudinary= require("cloudinary")
 const dotenv = require("dotenv");
 dotenv.config({ path: "backend/config/config.env" });
 
+//Seteamos archivo de configuracion
+if(process.env.NODE_ENV==="PRODUCTION") require('dotenv').config({path:'backend/config/config.env'})
+
 
 //Configurar base de datos
 connectDatabase();
@@ -20,7 +23,7 @@ connectDatabase();
 //para llamar al servidor
 const server = app.listen(process.env.PORT, () => {
   console.log(
-    `Servidor corriendo... puerto:: ${process.env.PORT} `
-  );//en modo: ${process.env.NODE_ENV}
+    `Servidor corriendo... puerto:: ${process.env.PORT} modo: ${process.env.NODE_ENV} `
+  );
 });
 
