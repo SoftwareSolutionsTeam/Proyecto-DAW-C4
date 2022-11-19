@@ -171,7 +171,7 @@ const ProductAd = () => {
   //Función para borrar usuario
   function borrarproducto(id) {
     axios
-      .delete("https://tecnostore.herokuapp.com/api/producto/" + id)
+      .delete("/api/producto/" + id)
       .then((res) => {
         //console.log(res.data)
         //alert(res.data)

@@ -64,7 +64,7 @@ const CrearProduct = () => {
     console.log(producto);
 
     axios
-      .post("https://tecnostore.herokuapp.com/api/producto/nuevo", producto)
+      .post("/api/producto/nuevo", producto)
       .then((res) => {
         //toast.success('El producto se creó con éxito')
         Swal.fire("Nuevo producto creado..✔");
