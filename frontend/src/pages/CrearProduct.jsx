@@ -39,7 +39,7 @@ const CrearProduct = () => {
     setLoading(true);
     
     const res = await fetch(
-      `https://api.cloudinary.com/v1_1/tecnostore.herokuapp.com/tecnostore/upload`,
+      `http://api.cloudinary.com/v1_1/tecnostore/upload`,
       {
         method: "POST",
         body: data,
