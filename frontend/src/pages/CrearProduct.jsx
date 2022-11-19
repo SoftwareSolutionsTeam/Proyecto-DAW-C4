@@ -40,7 +40,7 @@ const CrearProduct = () => {
     const urlHeroku = "https://tecnostore.herokuapp.com"
     //http://api.cloudinary.com/v1_1/tecnostore/upload
     const res = await fetch(
-      `http://api.cloudinary.com/v1_1/${urlHeroku}/tecnostore/upload`,
+      `https://api.cloudinary.com/v1_1/${urlHeroku}/tecnostore/upload`,
       {
         method: "POST",
         body: data,
